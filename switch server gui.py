@@ -16,10 +16,6 @@ conf = configparser.ConfigParser()
 conf.read(inipath, encoding="utf-8")
 sections = conf.sections()
 
-cps=conf.get('General','cps')
-mes="成功切换服务器，当前服务器为"
-ncps=mes+cps
-
 # 主窗口window
 window = tk.Tk()
 window.title('原神世界线切换器')
