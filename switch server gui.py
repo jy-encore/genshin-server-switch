@@ -1,13 +1,19 @@
 import re
 import tkinter as tk
 import tkinter.messagebox
+from tkinter import filedialog
 import configparser
 import os
 from re import S
 import webbrowser
 
 #获取当前路径
-curpath = os.path.dirname(os.path.realpath(__file__))
+tkinter.messagebox.askokcancel(title = '原神世界线切换器 提示',message='请在接下来的窗口中选择YuanShen.exe所在的文件夹')
+pathtk=tk.Tk()
+pathtk.withdraw()
+FolderPath=filedialog.askdirectory()
+curpath = FolderPath
+print(curpath)
 #设定config目录
 inipath = os.path.join(curpath, "config.ini")
 
@@ -47,17 +53,15 @@ def download():
     webbrowser.open("https://wwa.lanzoui.com/iYtg7v8dt0b")
 
 #提示信息
-a = tk.Label(window, text='请将软件置于GenshinImpactGame文件夹', font=('simhei', 12), width=400, height=1)
-a.pack()
-b = tk.Label(window, text='并确保PCGameSDK.dll在\YuanShen_Data\Plugins目录下', font=('simhei', 12), width=400, height=1)
+b = tk.Label(window, text='请检查PCGameSDK.dll是否在\YuanShen_Data\Plugins目录下', font=('msyh', 12), width=400, height=1)
 b.pack()
 
 # 在图形界面上创建一个标签用以显示内容并放置
-bi = tk.Button(window, text='切换b服', bg='white', font=('simhei', 13), command=switchbilibili)
+bi = tk.Button(window, text='切换b服', bg='white', font=('msyh', 13), command=switchbilibili)
 bi.pack()
-mi = tk.Button(window, text='切换官服', bg='white', font=('simhei', 11), command=switchmihoyo)
+mi = tk.Button(window, text='切换官服', bg='white', font=('msyh', 11), command=switchmihoyo)
 mi.pack()
-dn = tk.Button(window, text='下载PCGameSDK.dll', bg='white', font=('simhei', 11), command=download)
+dn = tk.Button(window, text='下载PCGameSDK.dll', bg='white', font=('msyh', 11), command=download)
 dn.pack()
  
 # 主窗口循环显示
